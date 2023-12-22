@@ -24,10 +24,11 @@
               <a class="nav-link active text-light" aria-current="page" href="/">Home</a>
             </li>
           </ul>
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" name="search"placeholder="Search" aria-label="Search">
+          <form class="d-flex" role="search" action="{{ route('users.search') }}" method="GET">
+            <input class="form-control me-2" type="search" name="search" value="{{ $search }}" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success" type="submit">Search</button>
           </form>
+
         </div>
       </div>
     </nav><br>
@@ -53,6 +54,7 @@
           </thead>
 
           <tbody>
+          @isset($users)
             @foreach($users as $user)
             <tr>
               <td>{{ $loop->index+1}}</td>
@@ -67,6 +69,7 @@
           
           </tr>
             @endforeach
+            @endisset
           </tbody>
    </table>
 

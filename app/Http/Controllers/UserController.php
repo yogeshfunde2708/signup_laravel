@@ -10,14 +10,13 @@ class UserController extends Controller
 {
     public function home(){
         return view('users.home',[
-          'users'=>signusers::get()
+          'users'=>signusers::get(),
+          'search' => '',
         ]);
       }
 
       public function signup(){
-        return view('users.signup', [
-          'oldInput' => old(),
-      ]);
+        return view('users.signup');
       }
       public function store(Request $request)
       {
@@ -40,6 +39,20 @@ class UserController extends Controller
       
           return redirect()->route('users.home')->with('success', 'Signup successful!');
       }
+
+      public function search(Request $request){
+        $search = $request->input('search', '');
+    
+        if ($search != "") {
+            $users = Signusers::where('username', 'like', "%$search%")->get();
+        } else {
+            $users = Signusers::all();
+        }
+    
+        return view('users.home', compact('users', 'search'));
+    }
+    
+      
 
       public function edit($id){
         $user = Signusers::where('id', $id)->first();
