@@ -14,9 +14,6 @@
   </style>
   </head>
   <body>
-
-    <!-- Example Code -->
-    
     <nav class="navbar navbar-expand-lg bg-dark fixed-top">
       <div class="container-fluid">
         <a class="navbar-brand text-light" href="#">Signup Details</a>
@@ -37,7 +34,19 @@
 
         </div>
       </div>
-    </nav><br>
+    </nav><br><br>
+    @if(session('success'))
+    <div class="container mt-3">
+        <div class="alert alert-success" id="success-alert">
+            {{ session('success') }}
+        </div>
+    </div>
+    <script>
+        setTimeout(function() {
+            document.getElementById('success-alert').style.display = 'none';
+        }, 3000);
+    </script>
+    @endif
     <div class="container mt-5">
         <div class="text-right">
             <a href="users/signup" class="btn btn-dark">Sign In</a>

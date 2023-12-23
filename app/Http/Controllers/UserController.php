@@ -94,6 +94,6 @@ class UserController extends Controller
     {
         $user = Signusers::where('id', $id)->first();
         $user->delete();
-        return back()->with('success', 'Deleted successfully');
+        return back()->with('success', 'Deleted successfully!');
     }
 }
