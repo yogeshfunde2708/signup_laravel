@@ -18,6 +18,7 @@ Route::get('/',[UserController::class,'home'])->name('users.home');
 Route::get('users/signup',[UserController::class,'signup'])->name('users.signup');
 Route::POST('users/store',[UserController::class,'store'])->name('users.store');
 Route::get('users/search', [UserController::class, 'search'])->name('users.search');
+Route::get('users/clear', [UserController::class, 'clear'])->name('users.clear');
 Route::get('users/{id}/edit',[UserController::class,'edit']);
 Route::put('users/{id}/update',[UserController::class,'update']);
 Route::get('users/{id}/delete',[UserController::class,'delete']);
