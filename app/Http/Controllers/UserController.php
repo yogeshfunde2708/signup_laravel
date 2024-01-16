@@ -46,7 +46,7 @@ class UserController extends Controller
         $search = $request->input('search', '');
 
         if ($search != "") {
-            $users = Signusers::where('username', 'like', "%$search%")->get();
+            $users = Signusers::where('username','email', 'like', "%$search%")->get();
         } else {
             $users = Signusers::all();
         }

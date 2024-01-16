@@ -21,6 +21,3 @@ step 6:php artisan key:generate
 step 7: php artisan storage:link
 
 setp 8: php artisan serve
-
-
-
