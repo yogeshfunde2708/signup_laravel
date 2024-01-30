@@ -49,7 +49,7 @@
     @endif
     <div class="container mt-5">
         <div class="text-right">
-            <a href="users/signup" class="btn btn-dark">Sign In</a>
+            <a href="{{ route('users.signup') }}" class="btn btn-dark">Sign In</a>
         </div>
     </div>
     <div class="table-responsive">
